@@ -40,6 +40,15 @@ rm -rf oop-pillars-demo/.git
 2. **Authentication (403 Error)**:
 - **Issue**: Push failed due to wrong old account .
 - **Fix**: Cleared Windows Credential Manager, used PAT for `shahdkabi`.
+3. **Commit History Mismatch**:
+- **Problem**: PR failed because `main` and `4-pillars` had different commit histories.
+- **Solution**: Reset `4-pillars` to `origin/main` while keeping files:
+git fetch origin
+git reset --soft origin/main
+git add *.py
+git commit -m "Add 4 files demonstrating OOP pillars"
+git push --force-with-lease origin 4-pillars
+
 
 **Repo**: [https://github.com/shahdkabi/oop-pillars-demo](https://github.com/shahdkabi/oop-pillars-demo)  
 **Date**: October 5, 2025
